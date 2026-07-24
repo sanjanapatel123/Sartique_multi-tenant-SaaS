@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -34,7 +35,10 @@ export default function RootLayout({
       <body>
         <Navbar />
 
-        <main>{children}</main>
+        <main>
+          <ScrollToTop />
+          {children}
+        </main>
 
         <Footer />
       </body>

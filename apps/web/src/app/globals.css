@@ -22,8 +22,9 @@
   --container: 1320px;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
