@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-dm-sans);
+  --font-playfair: var(--font-playfair);
+}
+
+:root {
+  --background: #eff4f0;
+  --section: #f8fafc;
+
+  --primary: #2e382b;
+  --primary-light: #394035;
+
+  --heading: #111827;
+  --text: #4e7b58;
+
+  --text-light: #a9d8b3;
+
+  --border: #e5e7eb;
+
+  --container: 1320px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: min(var(--container), 92%);
+  margin-inline: auto;
+}
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(18px);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.scroll-wheel {
+  animation: scrollWheel 1.8s ease-in-out infinite;
+}
+
+/* ---------------- Tube ---------------- */
+
+.tube-flow {
+  stroke-dasharray: 22 140;
+
+  stroke-linecap: round;
+
+  animation: flowTube 2s linear infinite;
+
+  filter: drop-shadow(0 0 10px rgba(85, 229, 141, 0.7));
+}
+
+@keyframes flowTube {
+  from {
+    stroke-dashoffset: 162;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.liquid-border {
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+.liquid-border::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -70%;
+
+  background: linear-gradient(
+    180deg,
+    transparent,
+    #78f0a8,
+    var(--primary),
+    #78f0a8,
+    transparent
+  );
+
+  filter: blur(8px);
+
+  animation: borderFlow 2.4s linear infinite;
+}
+
+.liquid-border::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 2px;
+
+  background: #fff;
+
+  border-radius: 16px;
+}
+
+@keyframes borderFlow {
+  0% {
+    transform: translateY(-40%) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(40%) rotate(360deg);
+  }
+}
