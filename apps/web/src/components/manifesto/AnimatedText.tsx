@@ -16,7 +16,6 @@ function splitNode(node: ReactNode): ReactNode {
   // Plain text
   if (typeof node === "string") {
     return node.split(/(\s+)/).map((part, index) => {
-      // keep spaces untouched
       if (part.trim() === "") return part;
 
       return (
@@ -40,15 +39,18 @@ function splitNode(node: ReactNode): ReactNode {
 
   // React Element
   if (isValidElement(node)) {
-    // BR should stay BR
     if (node.type === "br") {
       return <br />;
     }
 
+    const element = node as React.ReactElement<{
+      children?: React.ReactNode;
+    }>;
+
     return React.cloneElement(
-      node as React.ReactElement<any>,
+      element,
       {},
-      Children.map(node.props.children, splitNode),
+      Children.map(element.props.children, splitNode),
     );
   }
 
