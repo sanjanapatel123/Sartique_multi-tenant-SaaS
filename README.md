@@ -2,8 +2,7 @@
 
 Sartique is a multi-tenant SaaS ERP platform for bespoke fashion and lifestyle brands. It is designed to manage customers, orders, inventory, warehouses, and dynamic product catalogs while keeping each organization's data completely isolated.
 
-🌐 **Live Demo:** Coming Soon
-🛠️ **Status:** In Development
+🌐 **Live Demo:** https://sartique.netlify.app/
 
 ## Tech Stack
 
